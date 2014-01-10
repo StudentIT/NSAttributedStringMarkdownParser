@@ -1,5 +1,5 @@
 //
-// Copyright 2012 Jeff Verkoeyen
+// Copyright 2013 Jeff Verkoeyen and Matthias Tretter
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -13,20 +13,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
+#import <UIKit/UIKit.h>
 
-const char* markdownnames[] = {
-  "EM",
-  "STRONG",
-  "STRONGEM",
-  "STRIKETHROUGH",
-  "HEADER",
-  "MULTILINEHEADER",
-  "URL",
-  "HREF",
-  "PARAGRAPH",
-  "NEWLINE",
-  "BULLETSTART",
-  "BLOCKQUOTE",
-  "HR",
-  "UNKNOWN"
-};
+@interface ComplexViewController : UIViewController
+
+@end

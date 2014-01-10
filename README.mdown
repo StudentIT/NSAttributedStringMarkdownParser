@@ -24,7 +24,7 @@ Supported Features
     *italics*
     **bold**
     ***bold italic***
-    ~~strikethrough~~
+    ~~strike-through~~
     
     # Header 1
     ## Header 2
@@ -38,9 +38,12 @@ Supported Features
 
     Header 2
     --------
+
+    > Block Quote
+    >> Block quote level 2
     
     http://google.com urls
-    [Text] (http://google.com "alt text") urls
+    [URLs with description](http://google.com 'and optional tooltip')
 
 Example
 -------

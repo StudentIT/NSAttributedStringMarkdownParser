@@ -17,17 +17,14 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-typedef enum {
-  NSAttributedStringMarkdownParserHeader1,
+typedef NS_ENUM(NSUInteger, NSAttributedStringMarkdownParserHeader) {
+  NSAttributedStringMarkdownParserHeader1 = 1, // value is important, internally used
   NSAttributedStringMarkdownParserHeader2,
   NSAttributedStringMarkdownParserHeader3,
   NSAttributedStringMarkdownParserHeader4,
   NSAttributedStringMarkdownParserHeader5,
   NSAttributedStringMarkdownParserHeader6,
-
-} NSAttributedStringMarkdownParserHeader;
-
-@protocol NSAttributedStringMarkdownStylesheet;
+};
 
 @interface NSAttributedStringMarkdownLink : NSObject
 @property (nonatomic, readonly, strong) NSURL* url;
@@ -37,13 +34,23 @@ typedef enum {
 
 @interface NSAttributedStringMarkdownParser : NSObject <NSCopying>
 
-- (NSAttributedString *)attributedStringFromMarkdownString:(NSString *)string;
-- (NSArray *)links; // Array of NSAttributedStringMarkdownLink
+- (NSMutableAttributedString *)attributedStringFromMarkdownString:(NSString *)string;
 
 @property (nonatomic, strong) UIFont* paragraphFont; // Default: systemFontOfSize:12
 @property (nonatomic, copy) NSString* boldFontName; // Default: boldSystemFont
 @property (nonatomic, copy) NSString* italicFontName; // Default: Helvetica-Oblique
 @property (nonatomic, copy) NSString* boldItalicFontName; // Default: Helvetica-BoldOblique
+
+@property (nonatomic, readonly) NSArray* links; // Array of NSAttributedStringMarkdownLink
+
+/// These CoreText attributes get applied to paragraphs that are recognized as block quotes, e.g.
+///
+/// >This is a block quote
+/// >>This is a block quote on level 2
+///
+/// The whole paragraph is indented to visualize the quoting, you can further style it by specifying
+/// attributes here. Per default the font get's changed to italic and the text color gets set to dark gray.
+@property (nonatomic, copy) NSDictionary *blockQuotesAttributes;
 
 - (void)setFont:(UIFont *)font forHeader:(NSAttributedStringMarkdownParserHeader)header;
 - (UIFont *)fontForHeader:(NSAttributedStringMarkdownParserHeader)header;

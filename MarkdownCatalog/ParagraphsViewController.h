@@ -1,5 +1,5 @@
 //
-// Copyright 2012 Jeff Verkoeyen
+// Copyright 2013 Jeff Verkoeyen
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,19 +14,7 @@
 // limitations under the License.
 //
 
-const char* markdownnames[] = {
-  "EM",
-  "STRONG",
-  "STRONGEM",
-  "STRIKETHROUGH",
-  "HEADER",
-  "MULTILINEHEADER",
-  "URL",
-  "HREF",
-  "PARAGRAPH",
-  "NEWLINE",
-  "BULLETSTART",
-  "BLOCKQUOTE",
-  "HR",
-  "UNKNOWN"
-};
+#import <UIKit/UIKit.h>
+
+@interface ParagraphsViewController : UIViewController
+@end
